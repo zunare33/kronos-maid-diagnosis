@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>クロノス邸メイド診断～あなたのお部屋係は誰？～</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <div class="topbar">
+      <div class="brand">クロノス邸メイド診断</div>
+      <div class="top-actions">
+        <button id="musicBtn" class="ghost">BGM OFF</button>
+        <button id="galleryBtn" class="ghost">メイド一覧</button>
+        <button id="restartBtn" class="ghost">タイトルへ</button>
+      </div>
+    </div>
+
+    <main id="stage" class="stage title-mode">
+      <div class="bg-glow"></div>
+      <section id="characterLayer" class="character-layer">
+        <img id="characterImage" class="character-image" alt="キャラクター立ち絵" />
+      </section>
+
+      <section id="resultPanel" class="result-panel hidden"></section>
+
+      <section id="titlePanel" class="title-panel">
+        <p class="eyebrow">ADV風・お部屋係相性診断</p>
+        <h1>クロノス邸メイド診断<br><span>あなたのお部屋係は誰？</span></h1>
+        <p class="lead">魔法と科学が共存する、20世紀初頭ヨーロッパ風の世界。<br>森に囲まれた豪華なお屋敷「クロノス邸」で、あなた専属のお部屋係を選出します。</p>
+        <div class="title-buttons">
+          <button id="startBtn" class="primary">診断スタート</button>
+          <button id="galleryBtn2" class="secondary">24人のメイドを見る</button>
+        </div>
+      </section>
+
+      <section id="dialogBox" class="dialog-box hidden">
+        <div class="dialog-name" id="speakerName">アウルム</div>
+        <div class="dialog-text" id="dialogText"></div>
+        <div id="choiceBox" class="choice-box hidden"></div>
+        <div class="dialog-footer">
+          <div class="progress-wrap hidden" id="progressWrap">
+            <div class="progress-label" id="progressLabel">質問 1 / 12</div>
+            <div class="progress"><div id="progressBar"></div></div>
+          </div>
+          <button id="nextBtn" class="next-btn">次へ</button>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div id="galleryModal" class="modal hidden">
+    <div class="modal-card">
+      <div class="modal-head">
+        <div>
+          <h2>クロノス邸 メイド一覧</h2>
+          <p class="modal-note">診断結果で表示されたメイドから、プロフィールが解放されます。</p>
+        </div>
+        <div class="modal-actions">
+          <button id="resetUnlock" class="ghost dark">解放状況リセット</button>
+          <button id="closeGallery" class="ghost dark">閉じる</button>
+        </div>
+      </div>
+      <div id="galleryGrid" class="gallery-grid"></div>
+    </div>
+  </div>
+
+  <div id="profileModal" class="modal profile-modal hidden">
+    <div class="profile-card">
+      <div class="modal-head">
+        <h2 id="profileTitle">プロフィール</h2>
+        <button id="closeProfile" class="ghost dark">閉じる</button>
+      </div>
+      <div id="profileBody" class="profile-body"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
