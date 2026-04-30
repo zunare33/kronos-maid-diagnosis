@@ -40,6 +40,61 @@ const els = {
 };
 
 const UNLOCK_KEY = "kronos_unlocked_maids_v2";
+
+const COMMAND_TENDENCIES = {
+  crystal: "命令の意図まで汲み取り、完璧に遂行しようとする。責任感が強いため、曖昧な命令でも自分で補完して最善を尽くす。",
+  sapphire: "指示内容を正確に復唱し、手順通りに実行する。マニュアル化できる命令に非常に強く、曖昧な指示には確認を求める。",
+  aquamarine: "明るく『はーい！』と受け取り、軽やかに動く。無邪気に見えて経験豊富なので、命令の裏の意図もしっかり読んでいる。",
+  iolite: "穏やかに受け入れ、相手を思いやりながら実行する。命令を奉仕の機会として捉えるため、丁寧で優しい対応になる。",
+  onyx: "親しげに微笑みながら従う。命令というより『頼られた』と受け止め、相手に寄り添うように行動する。",
+  kohaku: "返事は短いが、行動は早い。言葉で説明するより先に動き、必要なものを静かに用意してくれる。",
+  garnet: "厳しい顔で当然のように従う。命令内容に危険や不備があれば、拒否はしないが注意点をはっきり伝えてから遂行する。",
+  cassiterite: "現代人的な感覚で『そういうクエストね』と解釈して動く。柔軟だが、ときどきこの世界にない発想でアレンジする。",
+  hisui: "上品に一礼して素直に従う。世間知らずゆえ実務で戸惑うこともあるが、頼まれたことには誠実に向き合う。",
+  manao: "愛嬌たっぷりに『任せてくださいネ』と従う。ご主人様の好感度を上げる好機と考え、気持ちよく大げさなくらい明るく動く。",
+  sphene: "見習いながらもリーダーらしく頑張って従う。頼られると嬉しくなり、少し背伸びして実力以上に張り切る。",
+  ruby: "元気よく従うが、途中でいたずら心が顔を出すこともある。仕事自体はきちんとこなすが、結果が少し騒がしくなりがち。",
+  jet: "静かに一礼し、落ち着いて従う。明確な命令ほど安心して動けるが、強い言い方をされると限界以上に頑張りすぎる。",
+  citrine: "『私に任せなさい』とお姉さんぶって従う。実際は不安でも、頼られた以上は格好をつけてやり遂げようとする。",
+  paraiba: "元気いっぱいに即行動する。細かい確認より先に体が動くため、単純で明るい命令ほど力を発揮する。",
+  ruri: "恥ずかしそうにしながらも、素直に従う。穏やかで丁寧な命令には特に安心し、心を込めて実行する。",
+  nephrite: "しっかり者らしく振る舞いながら従う。命令を受けると『私が管理しますわ』と背伸びして、整理や計算で役に立とうとする。",
+  peridot: "冷静に命令を受け、効率的に実行する。経験豊富なので、指示された内容をより快適な形に整えて返すことができる。",
+  emerald: "ふんわり受け止めて従う。食事やお茶に関する命令には特に強く、相手の好みまで想像して行動する。",
+  amethyst: "『面倒くさい』と言いつつ、最短手順で完璧に終わらせる。無駄な命令は嫌うが、受けた仕事は結果で黙らせるタイプ。",
+  alexandrite: "おどおどしながらも従う。強く命じられると緊張しすぎるため、静かに具体的に頼まれると最も力を発揮する。",
+  topaz: "優雅に礼をして従う。礼儀作法や接客に関する命令なら非常に美しくこなすが、庶民的な家事では教わりながら頑張る。",
+  spinel: "『任せてください！』と即座に動く。力仕事や掃除など身体を使う命令には抜群に強く、考えるより先に完遂へ向かう。",
+  monga: "素直に大きく頷いて従う。難しい言い回しは苦手なので、短くはっきりした命令ほど全力で応えてくれる。"
+};
+
+const HEART_TENDENCIES = {
+  crystal: "褒められると恋に不慣れな乙女になる",
+  sapphire: "真面目すぎるほど一途に尽くす",
+  aquamarine: "無邪気に距離を縮めて甘えてくる",
+  iolite: "清らかに寄り添い、静かに想いを深める",
+  onyx: "寂しがり屋で、親しい相手には甘えたがる",
+  kohaku: "言葉より行動でそっと好意を示す",
+  garnet: "素直になれず、つい強がってしまう",
+  cassiterite: "友達感覚から自然に距離が近づく",
+  hisui: "憧れ混じりに優しく慕う",
+  manao: "甘え上手に懐へ入り込む",
+  sphene: "頼られると嬉しくて背伸びする",
+  ruby: "いたずらで構ってほしがる",
+  jet: "静かに信頼し、指示されると安心する",
+  citrine: "お姉さんぶって特別扱いしたがる",
+  paraiba: "笑顔でまっすぐ懐いてくる",
+  ruri: "はにかみながら優しく慕う",
+  nephrite: "背伸びしながら世話を焼きたがる",
+  peridot: "落ち着いて支え、気づけば心を許す",
+  emerald: "美味しいもので心の距離を縮める",
+  amethyst: "干渉を嫌いつつ、そばにいることは許す",
+  alexandrite: "優しくされると不安そうに心を開く",
+  topaz: "上品に尽くし、静かに想いを育てる",
+  spinel: "まっすぐ元気に支えようとする",
+  monga: "素直な笑顔で全力で懐く"
+};
+
 function getUnlocked(){
   try { return JSON.parse(localStorage.getItem(UNLOCK_KEY) || "[]"); }
   catch(e){ return []; }
@@ -267,22 +322,43 @@ function buildGallery(){
 }
 function openGallery(){ buildGallery(); els.galleryModal.classList.remove("hidden"); }
 function closeGallery(){ els.galleryModal.classList.add("hidden"); }
+function renderDetailSection(title, body){
+  if(!body) return "";
+  return `<section class="profile-section"><h4>${escapeHtml(title)}</h4><p>${escapeHtml(body)}</p></section>`;
+}
+function renderRelationList(relations){
+  if(!relations || !relations.length) return "";
+  return `<section class="profile-section"><h4>関係性</h4><ul class="relation-list">${relations.map(r=>`<li>${escapeHtml(r)}</li>`).join("")}</ul></section>`;
+}
 function openProfile(id){
   const maid = maids.find(m=>m.id === id);
   if(!maid) return;
   const open = isUnlocked(id);
   els.profileTitle.textContent = open ? `${maid.no}. ${maid.name}` : `No.${maid.no} 未解放`;
   if(open){
-    const nickname = maid.nickname ? `<span>愛称：${maid.nickname}</span>` : "";
+    const detail = (window.detailedProfiles || {})[id] || {};
+    const nickname = maid.nickname ? `<span>愛称：${escapeHtml(maid.nickname)}</span>` : "";
     els.profileBody.innerHTML = `
       <div class="profile-visual"><img class="profile-img" src="${maid.img}" alt="${maid.name}"></div>
       <div class="profile-info">
-        <h3>${maid.name}</h3>
-        <div class="profile-meta"><span>${maid.age}</span><span>${maid.role}</span>${nickname}<span>${maid.type}</span></div>
-        <p class="profile-desc">${maid.desc}</p>
-        <div class="profile-quote">「${maid.quote}」</div>
-        <h4>診断属性</h4>
-        <div class="profile-tags">${maid.tags.map(t=>`<span class="tag-chip">${t}</span>`).join("")}</div>
+        <h3>${escapeHtml(maid.name)}</h3>
+        <div class="profile-catch">${escapeHtml(detail.catch || maid.type)}</div>
+        <div class="profile-meta"><span>${escapeHtml(maid.age)}</span><span>${escapeHtml(maid.role)}</span>${nickname}<span>${escapeHtml(maid.type)}</span></div>
+        <div class="profile-quote">「${escapeHtml(maid.quote)}」</div>
+        ${renderDetailSection("性格", detail.personality || maid.desc)}
+        ${renderDetailSection("出自・経緯", detail.background)}
+        <div class="detail-grid">
+          ${renderDetailSection("得意スキル", detail.skill)}
+          ${renderDetailSection("香り", detail.scent)}
+          ${renderDetailSection("弱点", detail.weakness)}
+        </div>
+        ${renderDetailSection("従命傾向", COMMAND_TENDENCIES[id] || detail.command)}
+        ${renderDetailSection("♡傾向", HEART_TENDENCIES[id] || detail.heart)}
+        ${renderDetailSection("お部屋係として", detail.room)}
+        ${renderRelationList(detail.relations)}
+        ${renderDetailSection("その他", detail.other)}
+        ${renderDetailSection("アウルムのコメント", detail.aurum)}
+        <section class="profile-section"><h4>診断属性</h4><div class="profile-tags">${maid.tags.map(t=>`<span class="tag-chip">${escapeHtml(t)}</span>`).join("")}</div></section>
       </div>`;
   } else {
     els.profileBody.innerHTML = `
@@ -290,7 +366,7 @@ function openProfile(id){
       <div class="profile-info">
         <h3>？？？</h3>
         <div class="profile-meta"><span>No.${maid.no}</span><span>未解放</span></div>
-        <p class="profile-locked-text">このメイドのプロフィールはまだ解放されていません。<br>診断結果でこのメイドが「あなたのお部屋係」として表示されると、メイド一覧で詳細プロフィールを確認できるようになります。</p>
+        <p class="profile-locked-text">このメイドのプロフィールはまだ解放されていません。<br>診断結果でこのメイドが「あなたのお部屋係」として表示されると、一度の解放で詳細プロフィールがすべて確認できるようになります。</p>
       </div>`;
   }
   els.profileModal.classList.remove("hidden");

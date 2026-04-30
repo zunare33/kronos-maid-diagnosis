@@ -79,3 +79,57 @@ h1 span{font-size:.62em;color:#ffe9b9}
 .profile-tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:12px}
 .profile-locked-text{line-height:1.9;color:#6b5863}
 @media (max-width:820px){.profile-body{grid-template-columns:1fr}.profile-visual{min-height:280px}.modal-actions{justify-content:flex-start}.modal-head{align-items:flex-start;flex-direction:column}.top-actions{gap:6px}.ghost{padding:8px 11px}}
+
+/* --- v3 additions: detailed one-time unlock profiles --- */
+.profile-catch{font-size:16px;line-height:1.7;color:#8a5a28;background:#fff5df;border:1px solid #ecd09a;border-radius:14px;padding:10px 12px;margin:8px 0 12px;font-weight:700}
+.profile-section{margin:16px 0;padding:14px 16px;border-radius:16px;background:rgba(255,255,255,.72);border:1px solid rgba(80,60,70,.12)}
+.profile-section h4{margin:0 0 8px;color:#5f2035;letter-spacing:.08em;font-size:15px}
+.profile-section p{line-height:1.9;margin:8px 0;font-size:15px}
+.detail-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.detail-grid .profile-section{margin:0}
+.relation-list{margin:8px 0 0;padding-left:1.2em;line-height:1.8;font-size:15px}
+.relation-list li{margin:.25em 0}
+@media (max-width:920px){.detail-grid{grid-template-columns:1fr}}
+
+/* --- v4: profile image stays fixed; only text scrolls --- */
+.profile-card{
+  height:min(88vh, 880px);
+  max-height:88vh;
+}
+.profile-body{
+  flex:1;
+  min-height:0;
+  overflow:hidden;
+  align-items:stretch;
+}
+.profile-visual{
+  height:100%;
+  min-height:0;
+  align-self:stretch;
+  position:relative;
+  align-items:center;
+  justify-content:center;
+}
+.profile-img{
+  width:100%;
+  height:100%;
+  max-height:none;
+  object-fit:contain;
+  object-position:center center;
+  margin:auto;
+}
+.profile-info{
+  min-height:0;
+  overflow-y:auto;
+  padding-right:10px;
+  scrollbar-gutter:stable;
+}
+.profile-info::-webkit-scrollbar{width:10px}
+.profile-info::-webkit-scrollbar-track{background:rgba(80,60,70,.08);border-radius:999px}
+.profile-info::-webkit-scrollbar-thumb{background:rgba(181,138,66,.55);border-radius:999px}
+@media (max-width:820px){
+  .profile-card{height:92vh;max-height:92vh}
+  .profile-body{grid-template-columns:1fr;grid-template-rows:260px 1fr;gap:14px;padding:14px;overflow:hidden}
+  .profile-visual{height:260px;min-height:0}
+  .profile-info{overflow-y:auto;min-height:0;padding-right:8px}
+}
