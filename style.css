@@ -133,3 +133,12 @@ h1 span{font-size:.62em;color:#ffe9b9}
   .profile-visual{height:260px;min-height:0}
   .profile-info{overflow-y:auto;min-height:0;padding-right:8px}
 }
+
+
+/* --- v9: star status display --- */
+.profile-stats{background:linear-gradient(180deg,#fffdf8,#fff4e5)}
+.star-stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 14px;margin-top:4px}
+.stat-row{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:8px 10px;border-radius:12px;background:rgba(255,255,255,.78);border:1px solid rgba(181,138,66,.18)}
+.stat-label{font-size:14px;color:#4e3946;white-space:nowrap;font-weight:700}
+.stat-stars{font-size:18px;letter-spacing:.06em;color:#b58a42;text-shadow:0 1px 0 rgba(255,255,255,.8);white-space:nowrap}
+@media (max-width:560px){.star-stats{grid-template-columns:1fr}.stat-row{padding:7px 9px}.stat-stars{font-size:17px}}

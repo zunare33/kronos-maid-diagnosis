@@ -95,6 +95,72 @@ const HEART_TENDENCIES = {
   monga: "素直な笑顔で全力で懐く"
 };
 
+
+const STAR_STAT_LABELS = [
+  ["care", "🫖 お世話力"],
+  ["talk", "👄 会話力"],
+  ["housework", "🧹 家事力"],
+  ["healing", "🌸 癒やし"],
+  ["action", "⚡ 行動力"],
+  ["unique", "💎 個性"],
+  ["service", "🤍 ご奉仕"]
+];
+
+const STAR_STATS = {
+  crystal: {care:5,talk:3,housework:5,healing:4,action:3,unique:3,service:5},
+  sapphire: {care:5,talk:2,housework:5,healing:2,action:3,unique:3,service:5},
+  aquamarine: {care:4,talk:4,housework:4,healing:4,action:3,unique:5,service:4},
+  iolite: {care:4,talk:3,housework:3,healing:5,action:2,unique:4,service:5},
+  onyx: {care:4,talk:4,housework:3,healing:5,action:2,unique:4,service:4},
+  kohaku: {care:4,talk:2,housework:4,healing:3,action:4,unique:4,service:4},
+  garnet: {care:4,talk:2,housework:4,healing:2,action:4,unique:4,service:4},
+  cassiterite: {care:3,talk:5,housework:3,healing:3,action:3,unique:5,service:3},
+  hisui: {care:3,talk:4,housework:2,healing:4,action:2,unique:4,service:3},
+  manao: {care:3,talk:5,housework:2,healing:3,action:3,unique:5,service:4},
+  sphene: {care:3,talk:3,housework:3,healing:3,action:3,unique:4,service:3},
+  ruby: {care:2,talk:4,housework:3,healing:2,action:5,unique:5,service:3},
+  jet: {care:4,talk:2,housework:4,healing:3,action:2,unique:4,service:4},
+  citrine: {care:3,talk:4,housework:2,healing:2,action:3,unique:4,service:3},
+  paraiba: {care:4,talk:5,housework:3,healing:4,action:5,unique:4,service:4},
+  ruri: {care:4,talk:3,housework:3,healing:5,action:2,unique:4,service:4},
+  nephrite: {care:3,talk:4,housework:3,healing:3,action:3,unique:4,service:3},
+  peridot: {care:5,talk:3,housework:5,healing:4,action:3,unique:3,service:5},
+  emerald: {care:4,talk:3,housework:4,healing:4,action:2,unique:4,service:4},
+  amethyst: {care:3,talk:2,housework:5,healing:3,action:2,unique:5,service:3},
+  alexandrite: {care:3,talk:2,housework:4,healing:3,action:2,unique:4,service:4},
+  topaz: {care:4,talk:4,housework:2,healing:4,action:2,unique:4,service:4},
+  spinel: {care:4,talk:4,housework:3,healing:3,action:5,unique:4,service:4},
+  monga: {care:4,talk:3,housework:4,healing:4,action:5,unique:4,service:5}
+};
+
+
+const SERVICE_STYLES = {
+  crystal: "朝昼晩の身支度から私室管理まで、メイド長らしく隙なく整える。小さな乱れも見逃さず、ご主人様の一日を端正に支える。",
+  sapphire: "起床時間、寝具、衣類、備品を手順通りに管理する。特にベッドメイキングと整理整頓では、毎日同じ品質の快適さを保つ。",
+  aquamarine: "屋敷に不慣れなご主人様を明るく案内し、探し物や迷子をすぐ見つける。無邪気な声かけで緊張もほどいてくれる。",
+  iolite: "体調や怪我に気を配り、穏やかな看病と手当てで支える。疲れた夜には、静かな祈りのような優しさで寄り添う。",
+  onyx: "肩や手の疲れをほぐすマッサージと、温かな声かけでくつろぎを作る。ご主人様が安心できる距離感を大切にする。",
+  kohaku: "言葉少なに先回りして、必要なものをそっと用意する。紅茶、上着、書類など、気づいた時にはもう整っている。",
+  garnet: "食事や飲み物、戸締まり、部屋の安全確認を厳しく行う。規律ある暮らしを守るため、細かな乱れもきちんと正す。",
+  cassiterite: "現代知識を活かして、私室を便利で楽しい空間に変える。軽食や小物整理にも、少し変わった工夫を加える。",
+  hisui: "お茶の時間と詩の朗読で、優雅なくつろぎを届ける。実務は学びながらも、心を込めた丁寧な接客で支える。",
+  manao: "ご主人様の気分を読み、会話や気配りで居心地を良くする。愛嬌たっぷりに懐へ入り、毎日を楽しく演出する。",
+  sphene: "見習いながらも、編み物や小さな家事で一生懸命支える。寒い日には手作りの小物で、ささやかな温かさを届ける。",
+  ruby: "屋敷の抜け道や鍵の知識を活かして、小回りよく動く。少しいたずらっぽいが、退屈しない一日を連れてくる。",
+  jet: "静かに部屋を整え、頼まれたことを丁寧にこなす。瞑想で心を整えた落ち着きで、私室に穏やかな空気を保つ。",
+  citrine: "お姉さんぶりながら、灯りの確認や簡単な整理を頑張る。怖がりでも、頼られた時は背伸びして役目を果たそうとする。",
+  paraiba: "朝から明るく声をかけ、庭仕事や雑務を元気いっぱいに片づける。落ち込んだ時も笑顔で背中を押してくれる。",
+  ruri: "ハープの音色や柔らかな鼻歌で、私室を癒やしの空間にする。静かな夜や休憩時間に、穏やかな安らぎを届ける。",
+  nephrite: "暗算と備品管理で、ご主人様の持ち物やお茶菓子をきちんと把握する。背伸びしながらも、世話焼きに支えようとする。",
+  peridot: "家具配置や生活動線を見直し、過ごしやすい私室を作る。経験豊富な判断で、言われた以上の快適さを整える。",
+  emerald: "軽食や温かい料理で、ご主人様の気持ちをほぐす。好みの味を覚え、疲れた時にちょうどよい一皿を用意する。",
+  amethyst: "必要な仕事を最短で片づけ、静かで無駄のない部屋を保つ。過度に干渉せず、快適な距離感で支える。",
+  alexandrite: "衣類や布小物のほつれを、部屋の隅で黙々と直す。目立たないが、気づけば暮らしの小さな傷を整えてくれる。",
+  topaz: "礼儀作法とお茶の支度で、私室に高貴な時間を作る。庶民的な家事は学びながらも、優雅な接客で心を尽くす。",
+  spinel: "重い荷物運びや高所清掃を笑顔で引き受ける。体を使う作業で頼りになり、部屋の大きな困りごとを力強く解決する。",
+  monga: "床磨きと力仕事を全力でこなし、部屋をぴかぴかにする。難しい言葉は苦手でも、素直な笑顔と働き者ぶりで支える。"
+};
+
 function getUnlocked(){
   try { return JSON.parse(localStorage.getItem(UNLOCK_KEY) || "[]"); }
   catch(e){ return []; }
@@ -330,6 +396,16 @@ function renderRelationList(relations){
   if(!relations || !relations.length) return "";
   return `<section class="profile-section"><h4>関係性</h4><ul class="relation-list">${relations.map(r=>`<li>${escapeHtml(r)}</li>`).join("")}</ul></section>`;
 }
+
+function starText(value){
+  const n = Math.max(0, Math.min(5, Number(value) || 0));
+  return "★".repeat(n) + "☆".repeat(5 - n);
+}
+function renderStarStats(id){
+  const stats = STAR_STATS[id];
+  if(!stats) return "";
+  return `<section class="profile-section profile-stats"><h4>ステータス</h4><div class="star-stats">${STAR_STAT_LABELS.map(([key,label])=>`<div class="stat-row"><span class="stat-label">${escapeHtml(label)}</span><span class="stat-stars" aria-label="${escapeHtml(label)} ${stats[key]} / 5">${starText(stats[key])}</span></div>`).join("")}</div></section>`;
+}
 function openProfile(id){
   const maid = maids.find(m=>m.id === id);
   if(!maid) return;
@@ -345,6 +421,7 @@ function openProfile(id){
         <div class="profile-catch">${escapeHtml(detail.catch || maid.type)}</div>
         <div class="profile-meta"><span>${escapeHtml(maid.age)}</span><span>${escapeHtml(maid.role)}</span>${nickname}<span>${escapeHtml(maid.type)}</span></div>
         <div class="profile-quote">「${escapeHtml(maid.quote)}」</div>
+        ${renderStarStats(id)}
         ${renderDetailSection("性格", detail.personality || maid.desc)}
         ${renderDetailSection("出自・経緯", detail.background)}
         <div class="detail-grid">
